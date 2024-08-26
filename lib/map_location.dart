@@ -66,17 +66,17 @@ class MapLocationPageState extends State<MapLocationPage> {
             child: FlutterMap(
               mapController: _mapController,
               options: const MapOptions(
-                initialCenter: LatLng(14.5995, 120.9842), // Manila, Philippines
-                initialZoom: 10.0,
+                initialCenter: LatLng(14.6760, 121.0437), // Manila, Philippines
+                initialZoom: 12.0,
               ),
               children: [
                 TileLayer(
                   urlTemplate:
-                      "https://api.mapbox.com/styles/v1/yhanie15/clzurei3p00jk01r33wx4hock/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoieWhhbmllMTUiLCJhIjoiY2x5bHBrenB1MGxmczJpczYxbjRxbGxsYSJ9.DPO8TGv3Z4Q9zg08WhfoCQ",
+                      "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                   additionalOptions: const {
                     'accessToken':
                         'pk.eyJ1IjoieWhhbmllMTUiLCJhIjoiY2x5bHBrenB1MGxmczJpczYxbjRxbGxsYSJ9.DPO8TGv3Z4Q9zg08WhfoCQ',
-                    'id': 'mapbox.mapbox-streets-v8',
+                    'id': 'mapbox://sytles/mapbox/streets-v11',
                   },
                 ),
               ],
