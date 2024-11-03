@@ -24,7 +24,7 @@ class FireTruckMovementPage extends StatelessWidget {
             ),
             children: [
               TileLayer(
-                urlTemplate: 'https://api.mapbox.com/styles/v1/yhanie15/clzurei3p00jk01r33wx4hock/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoieWhhbmllMTUiLCJhIjoiY2x5bHBrenB1MGxmczJpczYxbjRxbGxsYSJ9.DPO8TGv3Z4Q9zg08WhfoCQ',
+                urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
               ),
               const MarkerLayer(
                 markers: [

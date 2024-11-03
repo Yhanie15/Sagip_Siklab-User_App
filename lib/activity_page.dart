@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
-import 'report_page.dart';
-import 'profile_page.dart';
 import 'fire_truck_movemet_page.dart';
+import 'home_page.dart';
+
 
 class ActivityPage extends StatefulWidget {
   const ActivityPage({super.key});
 
   @override
-  _ActivityPageState createState() => _ActivityPageState();
+  ActivityPageState createState() => ActivityPageState();
 }
 
-class _ActivityPageState extends State<ActivityPage> with SingleTickerProviderStateMixin {
+class ActivityPageState extends State<ActivityPage> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -67,9 +66,13 @@ class _ActivityPageState extends State<ActivityPage> with SingleTickerProviderSt
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+          Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomePage()),
+         );
+        },
+      ),
+
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(50.0), // Custom height for the TabBar
           child: TabBar(
@@ -103,52 +106,7 @@ class _ActivityPageState extends State<ActivityPage> with SingleTickerProviderSt
           _buildReportList(reports.where((report) => report['status'] == 'Resolved').toList()),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.report),
-            label: 'Report',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.message),
-            label: 'Activity',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        type: BottomNavigationBarType.fixed,
-        currentIndex: 2, // Set the current index to the Activity tab
-        onTap: (index) {
-          if (index == 0) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const HomePage(),
-              ),
-            );
-          } else if (index == 1) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const ReportPage(),
-              ),
-            );
-          } else if (index == 3) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const ProfilePage(),
-              ),
-            );
-          }
-        },
-      ),
+      
     );
   }
 

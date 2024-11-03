@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
-import 'report_page.dart';
-import 'activity_page.dart';
+import 'package:new_app/home_page.dart';
 import 'edit_profile_page.dart'; // Import your new EditProfilePage
-import 'login_screen.dart'; // Import the LoginScreen
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -24,7 +21,12 @@ class ProfilePage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomePage()),
+                    (route) => false, // Removes all previous routes
+                  );
           },
         ),
       ),
@@ -119,65 +121,9 @@ class ProfilePage extends StatelessWidget {
                   // Navigate to support page
                 },
               ),
-              ListTile(
-                leading: const Icon(Icons.logout, color: Colors.redAccent),
-                title: const Text(
-                  'Log Out',
-                  style: TextStyle(color: Colors.white),
-                ),
-                onTap: () {
-                  // Navigate to LoginScreen
-                  Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const LoginScreen()),
-                    (route) => false, // Removes all previous routes
-                  );
-                },
-              ),
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.report),
-            label: 'Report',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.message),
-            label: 'Activity',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        type: BottomNavigationBarType.fixed,
-        currentIndex: 3,
-        onTap: (index) {
-          if (index == 0) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const HomePage()),
-            );
-          } else if (index == 1) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const ReportPage()),
-            );
-          } else if (index == 2) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const ActivityPage()),
-            );
-          }
-        },
       ),
     );
   }

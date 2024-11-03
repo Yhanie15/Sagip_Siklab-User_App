@@ -72,7 +72,7 @@ class MapLocationPageState extends State<MapLocationPage> {
               children: [
                 TileLayer(
                   urlTemplate:
-                      "https://api.mapbox.com/styles/v1/yhanie15/clzurei3p00jk01r33wx4hock/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoieWhhbmllMTUiLCJhIjoiY2x5bHBrenB1MGxmczJpczYxbjRxbGxsYSJ9.DPO8TGv3Z4Q9zg08WhfoCQ",
+                      "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                   additionalOptions: const {
                     'accessToken':
                         'pk.eyJ1IjoieWhhbmllMTUiLCJhIjoiY2x5bHBrenB1MGxmczJpczYxbjRxbGxsYSJ9.DPO8TGv3Z4Q9zg08WhfoCQ',
