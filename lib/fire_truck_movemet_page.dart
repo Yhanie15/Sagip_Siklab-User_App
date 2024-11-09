@@ -19,38 +19,40 @@ class FireTruckMovementPage extends StatelessWidget {
           // FlutterMap widget using Mapbox
           FlutterMap(
             options: const MapOptions(
-              initialCenter: LatLng(14.5995, 120.9842), // Example coordinates (Manila, Philippines)
-              initialZoom: 14.0,
+              initialCenter: LatLng(14.6760, 121.0437), // Example coordinates ( QUEZON CITY, Philippines)
+              initialZoom: 15,
             ),
             children: [
               TileLayer(
-                urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                urlTemplate: 'https://api.mapbox.com/styles/v1/yhanie15/clzurei3p00jk01r33wx4hock/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoieWhhbmllMTUiLCJhIjoiY2x5bHBrenB1MGxmczJpczYxbjRxbGxsYSJ9.DPO8TGv3Z4Q9zg08WhfoCQ',
               ),
               const MarkerLayer(
                 markers: [
                   Marker(
-                    point: LatLng(14.5995, 120.9842), // Example coordinates for fire truck location
+                    point: LatLng(14.6769, 121.0343), // Example coordinates for fire truck location
                     width: 80.0,
                     height: 80.0,
-                    child: Icon(Icons.fire_truck, size: 40, color: Colors.red),
+                    child: Icon(Icons.fire_truck, size: 35, color: Colors.black),
                   ),
                   Marker(
-                    point: LatLng(14.6095, 120.9842), // Example coordinates for fire scene location
+                    point: LatLng(14.6771, 121.0413), // Example coordinates for fire scene location
                     width: 80.0,
                     height: 80.0,
-                    child: Icon(Icons.location_on, size: 40, color: Colors.blue),
+                    child: Icon(Icons.location_on, size: 35, color: Colors.red),
                   ),
                 ],
               ),
               PolylineLayer(
                 polylines: [
-                  Polyline(
+                   Polyline(
                     points: [
-                      const LatLng(14.5995, 120.9842), // Start point (fire truck location)
-                      const LatLng(14.6095, 120.9842), // End point (fire scene location)
+                      const LatLng(14.6769, 121.0343), // Start point (fire truck location)
+                      const LatLng(14.6772, 121.0360), // Intermediate point for better route curve
+                      const LatLng(14.6765, 121.0385), // Intermediate point for better route curve
+                      const LatLng(14.6771, 121.0413), // End point (fire scene location)
                     ],
-                    strokeWidth: 5.0,
-                    color: Colors.orange,
+                    strokeWidth: 4.0,
+                    color: Colors.blue,
                   ),
                 ],
               ),
